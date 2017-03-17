@@ -1,0 +1,18 @@
+<job id="RTPdownloader">
+   <script language="VBScript">
+      Function VBInputBox(promptText)
+        VBInputBox = InputBox(promptText)
+      End Function
+   </script>
+
+   <script language="JScript">
+      var x = VBInputBox("Insira URL");
+      var WshShell = new ActiveXObject("WScript.Shell");
+      var nodex = "cmd /c node rtpdownloader " + x ;
+      var NODE = WshShell.Exec(nodex);
+      var out = NODE.StdOut;
+      var strOutput = out.ReadAll();
+      WScript.Echo(strOutput);
+      var EXPL = WshShell.Exec("explorer .");
+   </script>
+</job>

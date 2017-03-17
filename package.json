@@ -1,0 +1,26 @@
+{
+  "name": "rtpdownloader",
+  "version": "0.0.0",
+  "description": "Downloads videos from RTP website",
+  "main": "rtpdownloader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alpha-oliveira/RTPdownloader.git"
+  },
+  "keywords": [
+    "RTP",
+    "downloader"
+  ],
+  "author": "Antonio Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alpha-oliveira/RTPdownloader/issues"
+  },
+  "homepage": "https://github.com/alpha-oliveira/RTPdownloader#readme",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
