@@ -23,19 +23,18 @@ request(url, function (error, response, body) {
 
 var download = function(url, dest, cb) {
   var file = fs.createWriteStream(dest);
-  var requestv = https.get(url, function(response) {
-    response.pipe(file);
+  request.get(url).on('error', function(err) { // Handle errors
+    fs.unlink(dest); // Delete the file async. (But we don't check the result)
+    if (cb) cb(err.message);
+  }).pipe(file);
     file.on('finish', function() {
       file.close(cb);  // close() is async, call cb after close completes.
     });
-  }).on('error', function(err) { // Handle errors
-    fs.unlink(dest); // Delete the file async. (But we don't check the result)
-    if (cb) cb(err.message);
-  });
+  
 };
 
 var dest = 'video.mp4';
 var cb = function(show){ console.log('done:',show);
 };
 
-//ratazana
+
